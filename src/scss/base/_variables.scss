@@ -1,0 +1,82 @@
+//Fonts
+$primaryFont: 'Spartan', sans-serif;
+
+$normal: 700;
+$bold: 800;
+
+//Media Queries
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1440px;
+
+//Separation
+$separation: 2.5rem;
+
+//------------------Colors Theme 1 - Blue--------------
+//Backgrounds
+$main-bg1: hsl(222, 26%, 31%); 
+$toogle-bg1: hsl(223, 31%, 20%);
+$keypad-bg1: hsl(223, 31%, 20%);
+$screen-bg1: hsl(224, 36%, 15%);
+
+//Keys
+$key-bg-blue1: hsl(225, 21%, 49%);
+$key-shadow-blue1: hsl(224, 28%, 35%);
+
+$key-bg-red1: hsl(6, 63%, 50%);
+$key-shadow-red1: hsl(6, 70%, 34%);
+
+$key-bg-white1: hsl(30, 25%, 89%);
+$key-shadow-white1: hsl(28, 16%, 65%);
+
+//Text
+$text-dark1: hsl(221, 14%, 31%);
+$text-light1: hsl(0, 0%, 100%);
+$text-footer1: hsl(225, 21%, 49%);
+
+//------------------Colors Theme 2 - Light--------------
+//Backgrounds
+$main-bg2: hsl(0, 0%, 90%); 
+$toogle-bg2: hsl(0, 5%, 81%);
+$keypad-bg2: hsl(0, 5%, 81%);
+$screen-bg2: hsl(0, 0%, 93%);
+
+//Keys
+$key-bg-cyan2: hsl(185, 42%, 37%);
+$key-shadow-cyan2: hsl(185, 58%, 25%);
+
+$key-bg-orange2: hsl(25, 98%, 40%);
+$key-shadow-orange2: hsl(25, 99%, 27%);
+
+$key-bg-yellow2: hsl(45, 7%, 89%);
+$key-shadow-yellow2: hsl(35, 11%, 61%);
+
+//Text
+$text-dark2: hsl(60, 10%, 19%);
+$text-light2: hsl(0, 0%, 100%);
+$text-footer2: hsl(185, 42%, 37%);
+
+
+//------------------Colors Theme 3 - Purple--------------
+//Backgrounds
+$main-bg3: hsl(268, 75%, 9%); 
+$toogle-bg3: hsl(268, 71%, 12%);
+$keypad-bg3: hsl(268, 71%, 12%);
+$screen-bg3: hsl(268, 71%, 12%);
+
+//Keys
+$key-bg-violet3: hsl(281, 89%, 26%);
+$key-shadow-violet3: hsl(285, 91%, 52%);
+
+$key-bg-cyan3: hsl(176, 100%, 44%);
+$key-shadow-cyan3: hsl(177, 92%, 70%);
+
+$key-bg-magenta3: hsl(268, 47%, 21%);
+$key-shadow-magenta: hsl(290, 70%, 36%);
+
+//Text
+$text-yellow3: hsl(52, 100%, 62%);
+$text-blue3: hsl(198, 20%, 13%);
+$text-light3: hsl(0, 0%, 100%);
+$text-footer3: hsl(281, 89%, 26%);
+

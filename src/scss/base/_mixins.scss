@@ -1,0 +1,205 @@
+@mixin responsive($device) {
+    @if $device == phone {
+        @media only screen and (min-width: $phone) {
+        @content;
+        }
+    }
+
+    @if $device == tablet {
+        @media only screen and (min-width: $tablet) {
+            @content;
+        }
+    }
+
+    @if $device == desktop {
+        @media only screen and (min-width: $desktop) {
+            @content;
+        }
+    }
+}
+
+@mixin grid($columns, $gap) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+    @content;
+}
+
+@mixin bodyTheme($theme) {
+    @if $theme == blue-theme {
+        background-color: $main-bg1;
+
+        .topbar__title,  .topbar__title-theme, .topbar__number{
+            color: $text-light1;
+        }
+
+        a:hover {
+            color: $key-bg-red1;
+        }
+
+        a.scale{
+            color: $key-bg-red1;
+        }
+
+        #lbl-left, #lbl-center, #lbl-right {
+            background-color: $toogle-bg1;
+        }
+
+        .toogle__btn {
+            background: $key-bg-red1;
+        }
+
+        .screen__content {
+            background-color: $screen-bg1;
+            color: $text-light1;
+        }
+
+        .keypad {
+            background-color: $keypad-bg1;
+            .btn {
+                background-color: $key-bg-white1;
+                box-shadow: 0 4.5px $key-shadow-white1;
+                color: $text-dark1;
+                
+                &.keypad__reset, &.keypad__del {
+                    background-color: $key-bg-blue1;
+                    box-shadow: 0 4.5px $key-shadow-blue1;
+                    color: $text-light1;
+                }
+
+                &.keypad__equal {
+                    background-color: $key-bg-red1;
+                    box-shadow: 0 4.5px $key-shadow-red1;
+                    color: $text-light1;
+                }
+            }
+        }
+
+        .footer {
+            color: $text-footer1;
+            span {
+                color: $text-light1;
+            }
+        }
+
+        @content;
+    }
+
+    @if $theme == light-theme {
+        background-color: $main-bg2;
+
+        .topbar__title,  .topbar__title-theme, .topbar__number{
+            color: $text-dark2;
+        }
+
+        a:hover {
+            color: $key-bg-orange2;
+        }
+
+        a.scale{
+            color: $key-bg-orange2;
+        }
+
+        #lbl-left, #lbl-center, #lbl-right {
+            background-color: $toogle-bg2;
+        }
+
+        .toogle__btn {
+            background: $key-bg-orange2;
+        }
+
+        .screen__content {
+            background-color: $screen-bg2;
+            color: $text-dark2;
+        }
+
+        .keypad {
+            background-color: $keypad-bg2;
+            .btn {
+                background-color: $key-bg-yellow2;
+                box-shadow: 0 4.5px $key-shadow-yellow2;
+                color: $text-dark2;
+                
+                &.keypad__reset, &.keypad__del {
+                    background-color: $key-bg-cyan2;
+                    box-shadow: 0 4.5px $key-shadow-cyan2;
+                    color: $text-light2;
+                }
+
+                &.keypad__equal {
+                    background-color: $key-bg-orange2;
+                    box-shadow: 0 4.5px $key-shadow-orange2;
+                    color: $text-light2;
+                }
+            }
+        }
+
+        .footer {
+            color: $text-footer2;
+            span {
+                color: $text-dark2;
+            }
+        }
+
+        @content;
+    }
+
+    @if $theme == purple-theme {
+        background-color: $main-bg3;
+
+        .topbar__title,  .topbar__title-theme, .topbar__number{
+            color: $text-yellow3;
+        }
+
+        a:hover {
+            color: $key-bg-cyan3;
+        }
+
+        a.scale{
+            color: $key-bg-cyan3;
+        }
+
+        #lbl-left, #lbl-center, #lbl-right {
+            background-color: $toogle-bg3;
+        }
+
+        .toogle__btn {
+            background: $key-bg-cyan3;
+        }
+
+        .screen__content {
+            background-color: $screen-bg3;
+            color: $text-yellow3;
+        }
+
+        .keypad {
+            background-color: $keypad-bg3;
+            .btn {
+                background-color: $key-bg-magenta3;
+                box-shadow: 0 4.5px $key-shadow-magenta;
+                color: $text-yellow3;
+                
+                &.keypad__reset, &.keypad__del {
+                    background-color: $key-bg-violet3;
+                    box-shadow: 0 4.5px $key-shadow-violet3;
+                    color: $text-light3;
+                }
+
+                &.keypad__equal {
+                    background-color: $key-bg-cyan3;
+                    box-shadow: 0 4.5px $key-shadow-cyan3;
+                    color: $text-blue3;
+                }
+            }
+        }
+
+        .footer {
+            color: $text-footer3;
+            span {
+                color: $text-yellow3;
+            }
+        }
+
+        @content;
+    }
+}

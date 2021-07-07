@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="build/css/app.css">
+  <link rel="icon" href="build/img/favicon-32x32.png">
+</head>
+<body>
+  <section class="topbar container">
+    <h1 class="topbar__title">calc</h1>
+    <section class="topbar__content">
+      <h2 class="topbar__title-theme">THEME</h2>
+      <div class="topbar__listnumber">
+        <a id="theme1" class="topbar__number">1</a>
+        <a id="theme2" class="topbar__number">2</a>
+        <a id="theme3" class="topbar__number">3</a>
+      </div>
+      <div class="toogle">
+        <div class="toogle__switch">
+          <!-- Left toogle -->
+          <label for="radio-left" id="lbl-left" class="toogle__lbl"></label>
+          <input type="radio" name="radio-choice" id="radio-left" class="toogle__radio" checked="true">
+          <!-- Center toogle -->
+          <label for="radio-center" id="lbl-center" class="toogle__lbl"></label>
+          <input type="radio" name="radio-choice" id="radio-center" class="toogle__radio">
+          <!-- Right toogle -->
+          <label for="radio-right" id="lbl-right" class="toogle__lbl"></label>
+          <input type="radio" name="radio-choice" id="radio-right" class="toogle__radio">
+          <div class="toogle__btn"></div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <div class="screen container">
+    <input type="text" class="screen__content" readonly>
+  </div>
+  <div class="keypad container">
+  </div>
+  <footer class="footer container">Challenge by <span>Frontend Mentor</span>. Coded by <span>Carlo Cordova</span></footer>
+</body>
+<script src="./build/js/bundle.js"></script>
+</html>
+</html>

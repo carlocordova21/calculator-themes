@@ -1,0 +1,38 @@
+.keypad {
+    @include grid(4, 1.4rem);
+    
+    .keypad__reset {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .keypad__equal {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    height: 60vh;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+
+    @include responsive(tablet) {
+        padding: 3rem 2.5rem;
+        height: 55vh;
+        gap: 2.3rem;
+    }
+}
+
+.btn {
+    border-radius: 10px;
+    border: none;
+    font-size: 2.5rem;
+    &:hover {
+        cursor: pointer;
+    }
+
+    @include responsive(tablet) {
+        font-size: 3.5rem;
+    }
+    
+    
+}

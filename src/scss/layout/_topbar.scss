@@ -1,0 +1,123 @@
+//Seccion superior de la calculadora
+@use "sass:math";
+$w: 8rem;//Ancho del switch
+$r: 1.85rem;//Radio del boton del switch
+.topbar {
+    @include grid(2, 0);
+    align-items: center;
+    padding: $separation 0;
+
+    @include responsive(tablet) {
+        padding-top: 7rem;
+    }
+
+    .topbar__content {
+        @include grid(2, 0);
+        align-items: center;
+        gap: .1rem 0;
+        height: 6rem;
+        
+        grid-template-columns: auto $w; 
+
+    }
+
+    .topbar__title-theme {
+        display: block;
+        grid-row-start: 2;
+        justify-self: end;
+        padding-right: 2rem;
+    }
+
+    .topbar__listnumber {
+        @include grid(3, 0);
+        grid-column-start: 2;
+        justify-items: center;
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        a.scale{
+            transform: scale(1.3);
+        }
+    }
+}
+
+.toogle{
+    @include grid(3, 0);
+    justify-items: center;
+    height: 100%;
+}
+
+//Switch para cambiar los temas de la calculadora
+.toogle__switch {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    position: relative;
+    width: $w;
+
+    //Labels
+    .toogle__lbl {
+        cursor: pointer;
+        position: absolute;
+    }
+
+    #lbl-left {
+        width: math.div($w, 3);
+        height: math.div($w, 3);
+        border-radius: 50% 0 0 50%;
+    }
+
+    #lbl-center {
+        width: math.div($w, 3);
+        height: math.div($w, 3);
+        left: math.div($w, 3);
+    }
+
+    #lbl-right {
+        width: math.div($w, 3);
+        height: math.div($w, 3);
+        left: 2 * math.div($w, 3);
+        border-radius: 0 50% 50% 0;
+    }
+
+    //Boton del switch
+    .toogle__btn {
+        cursor: pointer;
+        width: $r;
+        height: $r;
+        z-index: 1;
+        border-radius: 50%;
+        position: absolute;
+        top: math.div($w, 3) * .5 - $r * .5;
+        left: math.div($w, 3) * .5 - $r * .5;
+        transition-property: all ease;
+        transition-duration: .3s;
+    }
+    
+    //Radios
+    .toogle__radio {
+        display: none;
+    }
+
+
+    #radio-left:checked {
+        ~ .toogle__btn {
+            left: math.div($w, 3) * .5 - $r * .5;
+        }
+    }
+
+    #radio-center:checked {
+        ~ .toogle__btn {
+            left: math.div($w, 3) * .5 - $r * .5 + math.div($w, 3);
+        }
+    }
+
+    #radio-right:checked {
+        ~ .toogle__btn {
+            left:math.div($w, 3) * .5 - $r * .5 + 2 * math.div($w, 3);
+        }
+    }
+    
+}
+
