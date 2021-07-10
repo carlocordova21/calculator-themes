@@ -111,6 +111,7 @@ function reset() {
     valuesOperation.num = 0;
     valuesOperation.simbol = '';
     valuesOperation.screenEmpty = true;
+    parentScreen.setAttribute('data-content', '');
 }
 const parentScreen = document.querySelector('.screen');
 const screen = document.querySelector('.screen__content');
