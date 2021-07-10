@@ -1,7 +1,8 @@
 .screen {
     padding: 0 0 $separation 0;
+    position: relative;
     .screen__content {
-        display: flex;
+        display: block;
         width: 100%;
         height: 15vh;
         border-radius: 15px;
@@ -10,7 +11,7 @@
         font-size: 3.2rem;
         text-align: end;
         padding: 2rem;
-
+        position: relative;
         
         @include responsive(phone) {
             padding: 3rem;
@@ -27,5 +28,31 @@
         &:hover {
             cursor: default;
         }
+    }
+    
+    &::before {
+        content: '';
+        width: 2.5vh;
+        height: 2.5vh;
+        position: absolute;
+        z-index: 1;
+        right: 10px;
+        top: 10px;
+    }
+
+    & .suma {
+        content: '+';
+    }
+
+    & .resta {
+        content: '-';
+    }
+
+    & .multi {
+        content: 'x';
+    }
+
+    & .div {
+        content: '/';
     }
 }

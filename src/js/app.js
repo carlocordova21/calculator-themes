@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     createButtons();
     changeSelectedSwitch();
+    getLocalStorageThemes();
     refreshScreen();
     pressButton();
-    getLocalStorageThemes();
 });
 
-//Obtenemos el modo actual del localStorage
 
 function getLocalStorageThemes() {
     removeThemes();
@@ -18,6 +17,7 @@ function getLocalStorageThemes() {
         numbers[0].classList.add('scale');
     }
 
+    //Obtenemos el modo actual del localStorage
     if(localStorage.getItem('theme') === 'blue') {
         body.classList.add('blue-theme');
         radios[0].checked = true;

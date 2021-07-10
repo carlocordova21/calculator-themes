@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     createButtons();
     changeSelectedSwitch();
+    getLocalStorageThemes();
     refreshScreen();
     pressButton();
-    getLocalStorageThemes();
 });
 
-//Obtenemos el modo actual del localStorage
 
 function getLocalStorageThemes() {
     removeThemes();
@@ -18,6 +17,7 @@ function getLocalStorageThemes() {
         numbers[0].classList.add('scale');
     }
 
+    //Obtenemos el modo actual del localStorage
     if(localStorage.getItem('theme') === 'blue') {
         body.classList.add('blue-theme');
         radios[0].checked = true;
@@ -62,43 +62,42 @@ function createButtons() {
     }
 }
 
-const simbol = false;
 function pressButton() {
     const buttons = document.querySelectorAll('.btn');
-    console.log(buttons);
+
     buttons.forEach(function(btn, i) {
         btn.dataset.btnId = i;
-        btn.dataset.simbol = false;
         btn.onclick = function(e) {
+            btn.classList.add('press');
             const value = numpad.values[e.target.dataset.btnId];
             showContentScreen(value);
-            if (value === 'DEL') {
-                del();
-            }
         }
     });
 }
 
 
 
-function sum() {
-    
-}
+const valuesOperation = {
+    num: 0,
+    simbol: '',
+    screenEmpty: true,
+};
 
-function minus() {
-
-}
-
-function mult() {
-
-}
-
-function div() {
-
-}
-
-function calculate(num1, num2, operation) {
-
+function calculate(num, simbol) {
+    switch (simbol) {
+        case '+':
+            valuesOperation.num += num;
+            break;
+        case '-':
+            valuesOperation.num -= num;
+            break;
+        case 'x':
+            valuesOperation.num *= num;
+            break;
+        case '/':
+            valuesOperation.num /= num;
+            break;
+    }
 }
 
 function del() {
@@ -106,20 +105,89 @@ function del() {
     const newValue = screen.value.substring(0, lenght-1);
     screen.value = newValue;
 }
+
+function reset() {
+    screen.value = '';
+    valuesOperation.num = 0;
+    valuesOperation.simbol = '';
+    valuesOperation.screenEmpty = true;
+}
+const parentScreen = document.querySelector('.screen');
 const screen = document.querySelector('.screen__content');
 
-function showContentScreen(value) {
-    if (screen.value.length<12) {
-        //Botones que no se muestran en pantalla
-        if (value !== 'DEL' && value !== '=' && value !== 'RESET' && value !== '+' && value !== '-' && value !== 'x' && value !== '/') {
-            screen.value += value;
-        }
-    }
-}
-
+//Refrescar screen al actualizar el navegador
 function refreshScreen(text) {
     screen.value = '';
 }  
+
+function showContentScreen(value) {
+    for (let i=0; i<=9; i++) {
+        if (value === i.toString()) {
+            if (valuesOperation.screenEmpty === true) {
+                screen.value = '';
+            }
+            screen.value += value;
+            valuesOperation.screenEmpty = false;
+        }
+    }
+    
+    if (value === '+' || value === '-' || value === 'x' || value === '/') {
+        if(screen.value !== '') {
+            valuesOperation.num = parseFloat(screen.value);
+            valuesOperation.simbol = value;
+            valuesOperation.screenEmpty = true;
+
+
+            parentScreen.classList.remove('suma');
+            parentScreen.classList.remove('resta');
+            parentScreen.classList.remove('multi');
+            parentScreen.classList.remove('div');
+            switch (value) {
+                case '+':
+                    parentScreen.classList.add('suma');
+                    break;
+                case '-':
+                    parentScreen.classList.add('resta');
+                    break;
+                case 'x':
+                    parentScreen.classList.add('multi');
+                    break;
+                case '/':
+                    parentScreen.classList.add('div');
+                    break;
+            }
+        }
+    }
+
+    if (value === '=') {
+        if (valuesOperation.num !== 0 && valuesOperation.simbol !== '') {
+            calculate(parseFloat(screen.value), valuesOperation.simbol);
+            screen.value = valuesOperation.num.toString();
+        }
+    }
+
+    if (value === '.') {
+        if (screen.value.indexOf('.') === -1) {
+            if (screen.value !== '') {
+                screen.value += value;
+            }
+        }
+    }
+
+    if (value === 'DEL') {
+        del();
+    }
+
+    if (value === 'RESET') {
+        reset();
+    }
+    
+}
+
+
+
+
+
 
 const body = document.querySelector('BODY');
 const labels = document.querySelectorAll('.toogle__lbl');
@@ -127,13 +195,6 @@ const radios = document.querySelectorAll('.toogle__radio');
 const numbers = document.querySelectorAll('.topbar__number');
 
 function changeSelectedSwitch() {
-    //Agregar clase .scale al cargar la pagina
-    /* radios.forEach(function(radio, i) {
-        if(radio.checked) {
-            numbers[i].classList.add('scale');
-        }
-    }); */
-
     //Agregar clase .scale al hacer click en los numeros
     numbers.forEach(function(num, i) {
         num.dataset.numberId = i;

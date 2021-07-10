@@ -26,19 +26,15 @@ function createButtons() {
     }
 }
 
-const simbol = false;
 function pressButton() {
     const buttons = document.querySelectorAll('.btn');
-    console.log(buttons);
+
     buttons.forEach(function(btn, i) {
         btn.dataset.btnId = i;
-        btn.dataset.simbol = false;
         btn.onclick = function(e) {
+            btn.classList.add('press');
             const value = numpad.values[e.target.dataset.btnId];
             showContentScreen(value);
-            if (value === 'DEL') {
-                del();
-            }
         }
     });
 }

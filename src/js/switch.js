@@ -4,13 +4,6 @@ const radios = document.querySelectorAll('.toogle__radio');
 const numbers = document.querySelectorAll('.topbar__number');
 
 function changeSelectedSwitch() {
-    //Agregar clase .scale al cargar la pagina
-    /* radios.forEach(function(radio, i) {
-        if(radio.checked) {
-            numbers[i].classList.add('scale');
-        }
-    }); */
-
     //Agregar clase .scale al hacer click en los numeros
     numbers.forEach(function(num, i) {
         num.dataset.numberId = i;
