@@ -31,28 +31,21 @@
     }
     
     &::before {
-        content: '';
-        width: 2.5vh;
-        height: 2.5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        content: attr(data-content);
+        width: 4vh;
+        height: 4vh;
         position: absolute;
         z-index: 1;
-        right: 10px;
-        top: 10px;
-    }
+        left: 10px;
+        top: 15px;
+        font-size: 3rem;
+        font-weight: lighter;
 
-    & .suma {
-        content: '+';
-    }
-
-    & .resta {
-        content: '-';
-    }
-
-    & .multi {
-        content: 'x';
-    }
-
-    & .div {
-        content: '/';
+        @include responsive(tablet) {
+            font-size: 3.5rem;
+        }
     }
 }

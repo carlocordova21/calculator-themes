@@ -49,6 +49,10 @@
             background: $key-bg-red1;
         }
 
+        .screen::before {
+            color: $text-light1;
+        }
+
         .screen__content {
             background-color: $screen-bg1;
             color: $text-light1;
@@ -108,6 +112,10 @@
             background: $key-bg-orange2;
         }
 
+        .screen::before {
+            color: $text-dark2;
+        }
+
         .screen__content {
             background-color: $screen-bg2;
             color: $text-dark2;
@@ -165,6 +173,10 @@
 
         .toogle__btn {
             background: $key-bg-cyan3;
+        }
+
+        .screen::before {
+            color: $text-yellow3;
         }
 
         .screen__content {

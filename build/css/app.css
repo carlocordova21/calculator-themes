@@ -396,6 +396,9 @@ p {
 .blue-theme .toogle__btn {
   background: #d03f2f;
 }
+.blue-theme .screen::before {
+  color: white;
+}
 .blue-theme .screen__content {
   background-color: #182034;
   color: white;
@@ -443,6 +446,9 @@ p {
 .light-theme .toogle__btn {
   background: #ca5502;
 }
+.light-theme .screen::before {
+  color: #35352c;
+}
 .light-theme .screen__content {
   background-color: #ededed;
   color: #35352c;
@@ -489,6 +495,9 @@ p {
 }
 .purple-theme .toogle__btn {
   background: #00e0d1;
+}
+.purple-theme .screen::before {
+  color: #ffe53d;
 }
 .purple-theme .screen__content {
   background-color: #1d0934;
@@ -653,25 +662,23 @@ p {
   cursor: default;
 }
 .screen::before {
-  content: "";
-  width: 2.5vh;
-  height: 2.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: attr(data-content);
+  width: 4vh;
+  height: 4vh;
   position: absolute;
   z-index: 1;
-  right: 10px;
-  top: 10px;
+  left: 10px;
+  top: 15px;
+  font-size: 3rem;
+  font-weight: lighter;
 }
-.screen .suma {
-  content: "+";
-}
-.screen .resta {
-  content: "-";
-}
-.screen .multi {
-  content: "x";
-}
-.screen .div {
-  content: "/";
+@media only screen and (min-width: 768px) {
+  .screen::before {
+    font-size: 3.5rem;
+  }
 }
 
 .keypad {

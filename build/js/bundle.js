@@ -137,23 +137,18 @@ function showContentScreen(value) {
             valuesOperation.simbol = value;
             valuesOperation.screenEmpty = true;
 
-
-            parentScreen.classList.remove('suma');
-            parentScreen.classList.remove('resta');
-            parentScreen.classList.remove('multi');
-            parentScreen.classList.remove('div');
             switch (value) {
                 case '+':
-                    parentScreen.classList.add('suma');
+                    parentScreen.setAttribute('data-content', '+');
                     break;
                 case '-':
-                    parentScreen.classList.add('resta');
+                    parentScreen.setAttribute('data-content', '-');
                     break;
                 case 'x':
-                    parentScreen.classList.add('multi');
+                    parentScreen.setAttribute('data-content', 'x');
                     break;
                 case '/':
-                    parentScreen.classList.add('div');
+                    parentScreen.setAttribute('data-content', '/');
                     break;
             }
         }
@@ -163,6 +158,7 @@ function showContentScreen(value) {
         if (valuesOperation.num !== 0 && valuesOperation.simbol !== '') {
             calculate(parseFloat(screen.value), valuesOperation.simbol);
             screen.value = valuesOperation.num.toString();
+            parentScreen.setAttribute('data-content', '');
         }
     }
 
