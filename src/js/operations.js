@@ -32,4 +32,5 @@ function reset() {
     valuesOperation.num = 0;
     valuesOperation.simbol = '';
     valuesOperation.screenEmpty = true;
+    parentScreen.setAttribute('data-content', '');
 }
